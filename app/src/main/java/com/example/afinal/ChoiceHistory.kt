@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 class ChoiceHistory : AppCompatActivity() {
     private lateinit  var _rvChoice : RecyclerView
@@ -20,7 +21,7 @@ class ChoiceHistory : AppCompatActivity() {
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
         val choice = mutableListOf<MutableList<String>>()
-        db.collection("tbHistory").get()
+        db.collection("tbHistory").whereEqualTo("userID", sp.getString("userID",null)).orderBy("id", Query.Direction.DESCENDING).get()
             .addOnSuccessListener {
                     result ->
                 var size = result.size()

@@ -1,6 +1,7 @@
 package com.example.afinal
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
@@ -12,10 +13,12 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.project.BST
 
+
 class MainActivity : AppCompatActivity() {
     companion object{
         lateinit var bst : BST
     }
+    lateinit var sp : SharedPreferences
     lateinit var mediaPlayer: MediaPlayer
     fun initiateTree(){
         //Inisialisasi Tree
@@ -302,6 +305,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
         // Hide the status bar.
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
@@ -312,10 +316,11 @@ class MainActivity : AppCompatActivity() {
         //get user data
         sp = getSharedPreferences("dataSP", MODE_PRIVATE)
 
-        println(sp.getBoolean("cekTree", false))
-        if(sp.getBoolean("cekTree", false) == false){
-            initiateTree()
-        }
+        initiateTree()
+//        println(sp.getBoolean("cekTree", false))
+//        if(sp.getBoolean("cekTree", false) == false){
+//            initiateTree()
+//        }
         val userName = sp.getString("userName", null)
 
         //Inisialisasi xml

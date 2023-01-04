@@ -14,7 +14,7 @@ import android.widget.TextView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
 
-lateinit var sp : SharedPreferences;
+lateinit var sp : SharedPreferences
 class LoginPage : AppCompatActivity() {
     var db : FirebaseFirestore = FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +28,7 @@ class LoginPage : AppCompatActivity() {
         // Remember that you should never show the action bar if the
         // status bar is hidden, so hide that too if necessary.
         actionBar?.hide()
+
 
         var isUser = false;
         val _tvRegister = findViewById<TextView>(R.id.tvRegister)
@@ -43,8 +44,8 @@ class LoginPage : AppCompatActivity() {
                         val dataUser = User(document.data.get("email").toString(), document.data.get("username").toString(), document.data.get("password").toString(), document.data.get("score").toString().toInt())
                         if (_etUser.text.toString() == dataUser.username && _etPass.text.toString() == dataUser.password|| _etUser.text.toString() == dataUser.email && _etPass.text.toString() == dataUser.password){
                             isUser = true
-                            sp = getSharedPreferences("dataSP", MODE_PRIVATE)
 
+                            sp = getSharedPreferences("dataSP",MODE_PRIVATE);
                             val editor = sp.edit()
                             editor.putString("userName", dataUser.username)
                             editor.putString("userID", dataUser.email)

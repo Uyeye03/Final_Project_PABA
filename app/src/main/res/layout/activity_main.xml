@@ -28,20 +28,6 @@
             android:layout_marginTop="35px"
             android:layout_marginRight="50px"/>
 
-        <ImageView
-            android:id="@+id/sound_on"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="35px"
-            android:layout_marginTop="35px"
-            android:maxHeight="35px"
-            android:maxWidth="35px"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/sound_on" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatButton
